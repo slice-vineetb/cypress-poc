@@ -1,0 +1,47 @@
+# Node modules
+node_modules/
+
+# Cypress cache & downloads
+cypress/downloads/
+cypress/screenshots/
+cypress/videos/
+
+# Cypress snapshot files for visual regression testing
+cypress/snapshot/
+cypress/snapshots/
+cypress/screenshots/
+
+# Cypress configuration files (you can include this if you don’t want to share configuration details)
+# cypress.json
+
+# Coverage directory
+coverage/
+
+# Logs and reports
+reports/
+*.log
+*.tsbuildinfo
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# npm debug files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Temp files
+*.tmp
+*.temp
+
+# Ignore specific Cypress test result files if not needed
+results/
+
+# Exclude any local environment configuration files
+.env
+.env.*
