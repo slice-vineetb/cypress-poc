@@ -13,6 +13,7 @@ class OrderSummaryPageFunctions {
     }
 
     validatePageTitle() {
+        cy.waitTillVisible(orderSummaryPageObjects.orderSummaryTitle)
         assertions.expectTextToMatch(orderSummaryPageObjects.orderSummaryTitle, 'Order Summary')
     }
 
