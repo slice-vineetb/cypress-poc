@@ -9,14 +9,14 @@ class LoginPageFunctions {
         cy.get(loginScreenObjects.passwordField).click()
     }
 
-    fillEmail() {
+    fillEmail(email) {
         this.clickOnEmailField()
-        cy.typeText(loginScreenObjects.emailField,'vineetbhat00@gmail.com')
+        cy.typeText(loginScreenObjects.emailField,email)
     }
 
-    fillPassword() {
+    fillPassword(password) {
         this.clickOnEmailField()
-        cy.typeText(loginScreenObjects.passwordField,'Vineet@123')
+        cy.typeText(loginScreenObjects.passwordField,password)
     }
 
     clickOnSignInButton() {
@@ -24,11 +24,13 @@ class LoginPageFunctions {
     }
 
     login() {
-        this.clickOnEmailField()
-        this.fillEmail();
-        this.clickOnPasswordField();
-        this.fillPassword()
-        this.clickOnSignInButton()
+        cy.fixture('credentials').then((credentials)=>{
+            this.clickOnEmailField()
+            this.fillEmail(credentials.email);
+            this.clickOnPasswordField();
+            this.fillPassword(credentials.password)
+            this.clickOnSignInButton()
+        })
     }
 
     
