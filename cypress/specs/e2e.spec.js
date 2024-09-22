@@ -9,18 +9,15 @@ import searchResultsPageFunctions from "../pageFunctions/SearchResultsPage/Searc
 describe('E2e test', () => {
     before(() => {
       cy.visit('/');
+      cy.viewport('ipad-mini')
     });
   
     it('Should place order:', () => {
-      cy.compareSnapshot('homePage', {errorThreshold: 1, failSilently: true}).then(comparisonResults => {
-        console.log(comparisonResults.mismatchedPixels)
-        console.log(comparisonResults.percentage) 
-        console.log(comparisonResults.error) 
-      })
+        cy.compareAndValidateSnapshot('homePage');
         homePageFunctions.clickOnSignIn();
         loginPageFunctions.login();
         homePageFunctions.validateGreetingMessage(); //assert
-        
+        cy.compareAndValidateSnapshot('homePage(signedIn)');
         homePageFunctions.searchProduct()
         searchResultsPageFunctions.validateSearchResultsPage() //assert
 

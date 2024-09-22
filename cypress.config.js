@@ -1,5 +1,6 @@
 const { defineConfig } = require("cypress");
 const { configureVisualRegression } = require('cypress-visual-regression')
+const { allureCypress } = require("allure-cypress/reporter");
 
 module.exports = defineConfig({
   e2e: {
@@ -10,9 +11,10 @@ module.exports = defineConfig({
       visualRegressionGenerateDiff: 'always',
       visualRegressionFailSilently: true
     },
-    screenshotsFolder: './cypress/snapshots/actual',
+    screenshotsFolder: './cypress/snapshot/actual',
     setupNodeEvents(on, config) {
-      configureVisualRegression(on)
+      configureVisualRegression(on);
+      allureCypress(on, config);
     },
     baseUrl: 'https://magento.softwaretestingboard.com',
     specPattern: 'cypress/specs/**/*.spec.js',

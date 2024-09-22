@@ -15,10 +15,11 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+import "allure-cypress";
 
 const { addCompareSnapshotCommand } = require('cypress-visual-regression/dist/command')
 addCompareSnapshotCommand({
-    capture: 'fullPage', // cypress screenshot option
+    capture: 'viewport', // cypress screenshot option
     errorThreshold: 0.5, // plugin threshold option
     pixelmatchOptions: {
       threshold: 0 // pixelmatch threshold option

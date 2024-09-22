@@ -132,3 +132,11 @@ Cypress.Commands.add('checkRadioButton', (selector) => {
         }
     });
 });
+
+Cypress.Commands.add('compareAndValidateSnapshot', (snapshotName, options = { errorThreshold: 1, failSilently: true }) => {
+    cy.compareSnapshot(snapshotName, options).then(comparisonResults => {
+      if (comparisonResults.error) {
+        throw new Error(`Snapshot comparison failed: ${comparisonResults.error}`);
+      }
+    });
+  });

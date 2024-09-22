@@ -45,3 +45,5 @@ results/
 # Exclude any local environment configuration files
 .env
 .env.*
+allure-results/
+allure-report/
