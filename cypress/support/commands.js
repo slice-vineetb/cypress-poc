@@ -140,3 +140,18 @@ Cypress.Commands.add('compareAndValidateSnapshot', (snapshotName, options = { er
       }
     });
   });
+
+  Cypress.Commands.add('checkCheckbox', (selector) => {
+    cy.get(selector).then($checkbox => {
+        if ($checkbox.is(':checked')) {
+            cy.log('Checkbox is already checked.');
+        } else {
+            cy.log('Checkbox is not checked, checking it now.');
+            cy.get(selector).check();
+        }
+    });
+});
+
+Cypress.Commands.add('uploadFile', (selector, filePath) => {
+    cy.get(selector).selectFile(filePath, { force: true });
+});
