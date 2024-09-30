@@ -3,7 +3,7 @@ import loanApplicationPageFunctions from "../pageFunctions/LOS/LoanApplicationPa
 import loginPageFunctions from "../pageFunctions/LOS/LoginPage/LoginPageFunctions";
 import otpFunctions from "../pageFunctions/LOS/LoginPage/OtpFunctions";
 
-describe('LOS e2e', () => {
+describe('LOS loan application draft', () => {
 
   before('set localstorage key and value', () => {
     cy.window().then((window) => {
